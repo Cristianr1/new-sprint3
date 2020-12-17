@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "node server.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -12,6 +12,8 @@
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.21.0",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
+    "server-static": "^2.0.5",
     "vue": "^2.6.12",
     "vue-axios": "^3.2.0",
     "vue-router": "^3.2.0"

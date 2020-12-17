@@ -51,7 +51,6 @@ export default {
       };
       axios.post("http://127.0.0.1:8000/employee/auth/", json)
           .then(data => {
-            console.log(data)
             this.error = !data.data.Autenticado
             if (this.error) {
               this.message = "Contraseña equivocada"

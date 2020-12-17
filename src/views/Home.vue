@@ -6,7 +6,7 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-          <img src="" id="icon" alt="User Icon" />
+          <img src="@/assets/Logo.png" id="icon" alt="Mecanizados icon" />
         </div>
 
         <!-- Login Form -->

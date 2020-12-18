@@ -49,7 +49,7 @@ export default {
         "username": this.usuario,
         "password": this.password
       };
-      axios.post("http://127.0.0.1:8000/employee/auth/", json)
+      axios.post("https://gestion-cliente.herokuapp.com/employee/auth/", json)
           .then(data => {
             this.error = !data.data.Autenticado
             if (this.error) {

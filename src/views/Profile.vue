@@ -87,7 +87,7 @@ export default {
   },
   mounted: function (){
     this.username = localStorage.username
-    axios.get("http://127.0.0.1:8000/employee/data/" + this.username).then(data =>{
+    axios.get("https://gestion-cliente.herokuapp.com/employee/data/" + this.username).then(data =>{
       this.form.username = data.data.username
       this.form.password = data.data.password
       this.form.rol = data.data.rol

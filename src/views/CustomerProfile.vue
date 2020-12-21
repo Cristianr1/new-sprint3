@@ -53,10 +53,10 @@
         </div>
         <div class="row">
           <div class="form-group col-sm-6 left">
-             <button class="btn-payment" v-on:click="payBill">Pagar Factura</button>
+             <button type="button" class="btn-payment" v-on:click="payBill">Pagar Factura</button>
           </div>
         <div class="form-group col-sm-6 left">
-             <button class="btn-generate" v-on:click="generateInvoice">Generar Factura</button>
+             <button type="button" class="btn-generate" v-on:click="generateInvoice">Generar Factura</button>
 
           </div>
         </div>
@@ -94,10 +94,17 @@ export default {
 
     generateInvoice() {
         axios.put('https://gestion-cliente.herokuapp.com/customer/invoice/', { name: this.username })
+      .then(response =>{
+        this.form.invoice = response.data.invoice
+        this.form.bill = response.data.isPayment ? "Pagada" : "Sin Pagar"
+      })
     },
 
     payBill() {
         axios.put('https://gestion-cliente.herokuapp.com/customer/payment/', { name: this.username })
+      .then(response =>{
+        this.form.bill = response.data.isPayment ? "Pagada" : "Sin Pagar"
+      })
     },
     },
     mounted: function (){

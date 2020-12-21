@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/profile">Mecanizados Group</a>
+        <a class="navbar-brand" href="/profile">Mecanizados Group - Empleado</a>
         <ul class="nav navbar-nav navbar-right">
           <button class="btn btn-danger navbar-btn" v-on:click="logout">Cerrar sesión</button>
         </ul>
@@ -97,7 +97,6 @@ export default {
       this.form.mobile = data.data.mobile
       this.form.logged_in = data.data.logged_in
       this.form.name = data.data.name
-      console.log(this.form)
     })
   }
 }

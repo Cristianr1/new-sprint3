@@ -49,21 +49,20 @@ export default {
         "username": this.usuario,
         "password": this.password
       };
-      axios.post("https://gestion-cliente.herokuapp.com/employee/auth/", json)
+      axios.post("https://gestion-cliente.herokuapp.com/authentication/", json)
+          .then(response => response.data)
           .then(data => {
-            this.error = !data.data.Autenticado
-            if (this.error) {
-              this.message = "Contraseña equivocada"
-            }else {
+            if(data.autenticado){
               localStorage.username = this.usuario;
-              this.$router.push('profile');
+              data.rol === 'Cliente' 
+                ? this.$router.push('customer-profile') 
+                : this.$router.push('employee-profile');
+            }else {
+              alert(data.error)
             }
           }).catch(function (error) {
-            if (error.response.status===404){
-              alert("Usuario no existe")
-            }else {
-              alert("Error en el servidor")
-            }
+            console.log(error)
+            alert("Internal Server Error")
           });
     },
     clear_error: function (){
